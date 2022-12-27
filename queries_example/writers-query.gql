@@ -1,0 +1,17 @@
+query MyQuery {
+  allUkranianWritersCsv {
+    edges {
+      node {
+        birthplace
+        citations
+        communities_contributed
+        education
+        first_name_and_last_name
+        id
+        most_famous_pieces
+        sources_of_data
+        travels
+      }
+    }
+  }
+}
