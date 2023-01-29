@@ -4,7 +4,7 @@ import { LinksBox } from "../components/LinksBox"
 
 const AboutProjectPage = () => {
   return (
-    <Wrap bg="gray.50">
+    <Wrap bg="gray.50" minH={"100vh"}>
       <Container minW={"100%"}>
         <Box my={"16"} mx={'24'}>
           <Heading size="2xl">Про проєкт</Heading>
