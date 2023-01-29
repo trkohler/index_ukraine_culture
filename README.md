@@ -3,11 +3,20 @@
 - [x] make csv data accessible in graph ql (query is there: queries_example/writers-query.gql)
 - [x] make basic profile template
 - [x] make it clearer for humans
-- [ ] make listing
+- [x] make listing
+  - testing url: http://localhost:8000/writers/
+  - [x] add query real data for listing
+  - [ ] make pagination (by 10 authors) (not necessary right now, can be in the next version) https://www.gatsbyjs.com/docs/adding-pagination/
+- [x] make header and footer 
+- [ ] make slugs in writers page and profile page 
+- [ ] make 'project about' page
 - [ ] make profile text align to center 
 - [ ] add AI generated Ukrainian ornament
 - [ ] change slugs so it would contain name and presudoname (for profiles)
 - [ ] make linking between profiles (think about that)
+- [ ] need to add genre for each creator so it would be possible to filter by genre
+- [ ] find domain name
+- [ ] deploy on netlify 
 
 ### resources
 

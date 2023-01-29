@@ -1,7 +1,8 @@
-import { Heading, VStack } from "@chakra-ui/react"
+import { Box, Container, Heading, HStack, VStack, Wrap } from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import * as React from "react"
 import { Link } from "../../components/Link"
+import { LinksBox } from "../../components/LinksBox"
 import { ProfileBox } from "../../components/ProfileBox"
 
 type ProfileProps = {
@@ -15,6 +16,7 @@ type ProfileProps = {
       most_famous_pieces: string
       sources_of_data: string
       travels: string
+      gender: "M" | "F"
     }
   }
 }
@@ -30,37 +32,80 @@ export const query = graphql`
       most_famous_pieces
       sources_of_data
       travels
+      gender
     }
   }
 `
 
+const genderTitles = {
+  F: {
+    born: "Народилася:",
+    studied: "Навчалася:",
+    communities_contributed: "Підтримувала такі спільноти:",
+    traveled: "Подорожувала:",
+  },
+  M: {
+    born: "Народився:",
+    studied: "Навчався:",
+    communities_contributed: "Підтримував такі спільноти:",
+    traveled: "Подорожував:",
+  },
+}
+
 // Step 2: Define your component
 const Profile = ({ data: { profile } }: ProfileProps) => {
+  const titles = genderTitles[profile.gender]
   return (
-    <main>
-      <VStack align={"stretch"} p={[6, 28]}>
-        <Heading as="h1">Профіль: {profile.first_name_and_last_name}</Heading>
-        <ProfileBox heading="Народився:" data={profile.birthplace}></ProfileBox>
-        <ProfileBox heading="Вчився:" data={profile.education}></ProfileBox>
-        <ProfileBox
-          heading="Відомі цитати:"
-          data={profile.citations}
-        ></ProfileBox>
-        <ProfileBox
-          heading="Підтримував такі спільноти:"
-          data={profile.communities_contributed}
-        ></ProfileBox>
-        <ProfileBox
-          heading="Найвідоміші твори:"
-          data={profile.most_famous_pieces}
-        ></ProfileBox>
-        <ProfileBox heading="Подорожі:" data={profile.travels}></ProfileBox>
-        <ProfileBox
-          heading="Джерела, які використовувалися:"
-          data={<Link to={profile.sources_of_data}>назва джерела</Link>}
-        ></ProfileBox>
-      </VStack>
-    </main>
+    <Wrap bg="gray.50" minH={'100vh'}>
+      <Container minW={"100%"}>
+      <Box m={"24"}>
+          <Heading size="2xl">Профіль: {profile.first_name_and_last_name}</Heading>
+        </Box>
+        <Box>
+          <VStack
+            mb={10}
+            mx={24}
+            align={"stretch"}
+            p={6}
+            boxShadow="md"
+            bgColor={"white"}
+            rounded="lg"
+          >
+            <ProfileBox
+              heading={titles.born}
+              data={profile.birthplace}
+            ></ProfileBox>
+            {profile.education && <ProfileBox
+              heading={titles.studied}
+              data={profile.education}
+            ></ProfileBox>}
+            {profile.citations && <ProfileBox
+              heading="Відомі цитати:"
+              data={profile.citations}
+            ></ProfileBox>}
+            {profile.communities_contributed && (
+              <ProfileBox
+                heading={titles.communities_contributed}
+                data={profile.communities_contributed}
+              ></ProfileBox>
+            )}
+            <ProfileBox
+              heading="Найвідоміші твори:"
+              data={profile.most_famous_pieces}
+            ></ProfileBox>
+            {profile.travels && <ProfileBox
+              heading={titles.traveled}
+              data={profile.travels}
+            ></ProfileBox>}
+            <ProfileBox
+              heading="Джерела, які використовувалися для збору цієї інформації:"
+              data={<Link to={profile.sources_of_data}>джерело</Link>}
+            ></ProfileBox>
+          </VStack>
+          <LinksBox />
+        </Box>
+      </Container>
+    </Wrap>
   )
 }
 
