@@ -45,7 +45,10 @@ module.exports = {
         isUsingColorMode: true,
       },
     },
-    `gatsby-transformer-csv`,
+    {
+      resolve: `gatsby-transformer-csv`,
+      options: {}
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-plugin-netlify",

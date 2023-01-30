@@ -21,6 +21,9 @@ export const query = graphql`
           first_name_and_last_name
           education
           birthplace_tag
+          fields {
+            slug
+          }
         }
       }
     }
@@ -48,7 +51,7 @@ const Listing = ({ data: { writers } }) => {
             >
               <Stack>
                 <Heading size={"md"} fontWeight={"medium"}>
-                  <Link href={`/profile/${edge.node.id}`}>
+                  <Link href={`/profile/${edge.node.fields.slug}`}>
                     {edge.node.first_name_and_last_name}
                   </Link>
                 </Heading>
