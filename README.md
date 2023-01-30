@@ -15,8 +15,10 @@
 - [ ] change slugs so it would contain name and presudoname (for profiles)
 - [ ] make linking between profiles (think about that)
 - [ ] need to add genre for each creator so it would be possible to filter by genre
-- [ ] find domain name
-- [ ] deploy on netlify 
+- [x] find domain name
+- [x] deploy on netlify 
+- [x] added to search console 
+- [ ] sitemaps!
 
 ### resources
 
