@@ -17,7 +17,7 @@ exports.onCreateNode = ({
   actions: Actions
 }) => {
   const { createNodeField } = actions
-  // console.log(node)
+  
   if (node.internal.type === `UkranianWritersCsv`) {
     createNodeField({
       node,
@@ -25,6 +25,6 @@ exports.onCreateNode = ({
       value: slug(node["first-name-and-last-name"]),
     })
 
-    console.log(node)
+    
   }
 }
