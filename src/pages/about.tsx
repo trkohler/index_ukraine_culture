@@ -40,6 +40,22 @@ const AboutProjectPage = () => {
 }
 
 // You'll learn about this in the next task, just copy it for now
-export const Head = () => <title>Про проєкт</title>
+export const Head = () => <>
+<title>Про проєкт</title>
+<meta
+  name="description"
+  content="Індекс української культури: опис проєкту і цілей."
+/>
+<meta name="robots" content="index, follow" />
+<meta
+  property="og:title"
+  content="Про проєкт"
+/>
+<meta
+  property="og:description"
+  content="Індекс української культури: опис проєкту і цілей."
+/>
+<meta property="og:locale" content="uk_UA" />
+</>
 
 export default AboutProjectPage

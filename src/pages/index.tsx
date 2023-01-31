@@ -56,6 +56,22 @@ const MainPage = () => {
 }
 
 // You'll learn about this in the next task, just copy it for now
-export const Head = () => <title>Індекс української культури</title>
+export const Head = () => <>
+<title>Індекс української культури</title>
+<meta
+  name="description"
+  content="Цікавишся українськими митцями? Починай тут."
+/>
+<meta name="robots" content="index, follow" />
+<meta
+  property="og:title"
+  content="Індекс української культури"
+/>
+<meta
+  property="og:description"
+  content="Цікавишся українськими митцями? Починай тут."
+/>
+<meta property="og:locale" content="uk_UA" />
+</>
 
 export default MainPage

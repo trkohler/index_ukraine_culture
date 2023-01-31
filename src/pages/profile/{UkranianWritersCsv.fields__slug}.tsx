@@ -52,14 +52,23 @@ const genderTitles = {
   },
 }
 
+const genderMeta = {
+  "by famous ukrainian creator": {
+    M: "відомого українського митця",
+    F: "відомої української митчині",
+  },
+}
+
 // Step 2: Define your component
 const Profile = ({ data: { profile } }: ProfileProps) => {
   const titles = genderTitles[profile.gender]
   return (
-    <Wrap bg="gray.50" minH={'100vh'}>
+    <Wrap bg="gray.50" minH={"100vh"}>
       <Container minW={"100%"}>
-      <Box m={[10, 24]}>
-          <Heading size={["lg", "2xl"]}>Профіль: {profile.first_name_and_last_name}</Heading>
+        <Box m={[10, 24]}>
+          <Heading size={["lg", "2xl"]} as="h1">
+            Профіль: {profile.first_name_and_last_name}
+          </Heading>
         </Box>
         <Box>
           <VStack
@@ -75,14 +84,18 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
               heading={titles.born}
               data={profile.birthplace}
             ></ProfileBox>
-            {profile.education && <ProfileBox
-              heading={titles.studied}
-              data={profile.education}
-            ></ProfileBox>}
-            {profile.citations && <ProfileBox
-              heading="Відомі цитати:"
-              data={profile.citations}
-            ></ProfileBox>}
+            {profile.education && (
+              <ProfileBox
+                heading={titles.studied}
+                data={profile.education}
+              ></ProfileBox>
+            )}
+            {profile.citations && (
+              <ProfileBox
+                heading="Відомі цитати:"
+                data={profile.citations}
+              ></ProfileBox>
+            )}
             {profile.communities_contributed && (
               <ProfileBox
                 heading={titles.communities_contributed}
@@ -93,10 +106,12 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
               heading="Найвідоміші твори:"
               data={profile.most_famous_pieces}
             ></ProfileBox>
-            {profile.travels && <ProfileBox
-              heading={titles.traveled}
-              data={profile.travels}
-            ></ProfileBox>}
+            {profile.travels && (
+              <ProfileBox
+                heading={titles.traveled}
+                data={profile.travels}
+              ></ProfileBox>
+            )}
             <ProfileBox
               heading="Джерела, які використовувалися для збору цієї інформації:"
               data={<Link to={profile.sources_of_data}>джерело</Link>}
@@ -110,7 +125,33 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
 }
 
 // You'll learn about this in the next task, just copy it for now
-export const Head = ({data: { profile }}) => <title>{profile.first_name_and_last_name}</title>
+export const Head = ({ data: { profile } }) => (
+  <>
+    <title>Профіль: {profile.first_name_and_last_name}</title>
+    <meta
+      name="description"
+      content={`${
+        profile.first_name_and_last_name
+      }: життя, творчість, здобутки, і праця ${
+        genderMeta["by famous ukrainian creator"][profile.gender]
+      }`}
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content={`Профіль: ${profile.first_name_and_last_name}`}
+    />
+    <meta
+      property="og:description"
+      content={`${
+        profile.first_name_and_last_name
+      }: життя, творчість, здобутки, і праця ${
+        genderMeta["by famous ukrainian creator"][profile.gender]
+      }`}
+    />
+    <meta property="og:locale" content="uk_UA" />
+  </>
+)
 
 // Step 3: Export your component
 export default Profile

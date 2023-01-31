@@ -14,8 +14,8 @@
 - [ ] make linking between profiles (think about that)
 - [ ] need to add genre for each creator so it would be possible to filter by genre
   - [ ] maybe I should generalize? instead of writers, artists and so on..just creator? (митець?)
-- [ ] mobile version looks like shit
-- [ ] work on seo (og tags, meta and so on)
+- [x] mobile version looks like shit
+- [x] work on seo (og tags, meta and so on)
 - [x] find domain name
 - [x] deploy on netlify 
 - [x] added to search console 
