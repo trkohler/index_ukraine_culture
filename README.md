@@ -9,12 +9,13 @@
   - [ ] make pagination (by 10 authors) (not necessary right now, can be in the next version) https://www.gatsbyjs.com/docs/adding-pagination/
 - [x] make header and footer 
 - [x] make slugs in writers page and profile page 
-- [ ] make 'project about' page
-- [ ] make profile text align to center 
-- [ ] add AI generated Ukrainian ornament
+- [x] make 'project about' page 
 - [x] change slugs so it would contain name and presudoname (for profiles)
 - [ ] make linking between profiles (think about that)
 - [ ] need to add genre for each creator so it would be possible to filter by genre
+  - [ ] maybe I should generalize? instead of writers, artists and so on..just creator? (митець?)
+- [ ] mobile version looks like shit
+- [ ] work on seo (og tags, meta and so on)
 - [x] find domain name
 - [x] deploy on netlify 
 - [x] added to search console 
@@ -30,4 +31,4 @@
 ### weird ideas
 
 - embed 3d model of each person in their profile page (so it would be possible to turn it on 360 degrees)
-- translate to English, German, Polish, Chinese (Mandarin) and French
+- translate to English, German, Polish, Chinese (Mandarin), Arabic, Spanish and French
