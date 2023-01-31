@@ -110,7 +110,7 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
 }
 
 // You'll learn about this in the next task, just copy it for now
-export const Head = () => <title>Home Page</title>
+export const Head = ({data: { profile }}) => <title>{profile.first_name_and_last_name}</title>
 
 // Step 3: Export your component
 export default Profile
