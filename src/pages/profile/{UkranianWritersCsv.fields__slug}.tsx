@@ -58,13 +58,13 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
   return (
     <Wrap bg="gray.50" minH={'100vh'}>
       <Container minW={"100%"}>
-      <Box m={"24"}>
-          <Heading size="2xl">Профіль: {profile.first_name_and_last_name}</Heading>
+      <Box m={[10, 24]}>
+          <Heading size={["lg", "2xl"]}>Профіль: {profile.first_name_and_last_name}</Heading>
         </Box>
         <Box>
           <VStack
             mb={10}
-            mx={24}
+            mx={[6, 24]}
             align={"stretch"}
             p={6}
             boxShadow="md"

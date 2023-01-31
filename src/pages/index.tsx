@@ -13,15 +13,15 @@ import { LinksBox } from "../components/LinksBox"
 
 const MainPage = () => {
   return (
-    <Wrap bg="gray.50" height={"100vh"}>
+    <Wrap bg="gray.50" minH={"100vh"}>
       <Container minW={"100%"}>
-        <Box m={"28"}>
-          <Heading size="2xl">Індекс української культури</Heading>
+        <Box m={[10, 28]}>
+          <Heading size={["lg", "2xl"]} as="h1">Індекс української культури</Heading>
         </Box>
         <Box>
           <Stack
             mb={10}
-            mx={24}
+            mx={[10, 24]}
             boxShadow="md"
             bgColor={"white"}
             rounded="lg"

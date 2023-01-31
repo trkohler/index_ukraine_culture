@@ -6,13 +6,13 @@ const AboutProjectPage = () => {
   return (
     <Wrap bg="gray.50" minH={"100vh"}>
       <Container minW={"100%"}>
-        <Box my={"16"} mx={'24'}>
-          <Heading size="2xl">Про проєкт</Heading>
+        <Box my={[10, 16]} mx={[10, 24]}>
+          <Heading size={["lg", "2xl"]}>Про проєкт</Heading>
         </Box>
         <Box>
           <Stack
             mb={10}
-            mx={24}
+            mx={[6, 24]}
             boxShadow="md"
             bgColor={"white"}
             rounded="lg"

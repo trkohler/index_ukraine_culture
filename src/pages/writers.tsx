@@ -34,15 +34,15 @@ const Listing = ({ data: { writers } }) => {
   return (
     <Wrap align={"left"} bg="gray.50">
       <Container minW={"100%"}>
-        <Box m={"28"}>
-          <Heading size="2xl">Письменники</Heading>
+        <Box m={[10, 28]}>
+          <Heading size={["lg", "2xl"]}>Письменники</Heading>
         </Box>
 
         <Box>
           {writers.edges.map(edge => (
             <HStack
-              mb={10}
-              mx={24}
+              mb={[4, 10]}
+              mx={[10, 24]}
               boxShadow="md"
               bgColor={"white"}
               rounded="lg"
@@ -50,7 +50,7 @@ const Listing = ({ data: { writers } }) => {
               p={8}
             >
               <Stack>
-                <Heading size={"md"} fontWeight={"medium"}>
+                <Heading size={["sm", "md"]} fontWeight={"medium"}>
                   <Link href={`/profile/${edge.node.fields.slug}`}>
                     {edge.node.first_name_and_last_name}
                   </Link>
