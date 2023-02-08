@@ -29,12 +29,12 @@ const MainPage = () => {
           >
             <Box>
               <Heading size={"md"} as={"h3"}>
-                <Link href={"/writers"}>Письменники</Link>
+                <Link href={"/listing/writers"}>Письменники</Link>
               </Heading>
             </Box>
             <Box>
-              <Heading size={"md"} as={"h3"} color={"blackAlpha.300"}>
-                Художники (в роботі)
+              <Heading size={"md"} as={"h3"}>
+              <Link href={"/listing/artists"}>Художники</Link>
               </Heading>
             </Box>
             <Box>

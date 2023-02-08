@@ -16,7 +16,7 @@ exports.onCreateNode = ({
 }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `UkranianWritersCsv`) {
+  if (node.internal.type === `CreatorsCsv`) {
     createNodeField({
       node,
       name: "slug",

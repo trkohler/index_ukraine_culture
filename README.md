@@ -20,6 +20,7 @@
 - [x] deploy on netlify 
 - [x] added to search console 
 - [x] sitemaps!
+- [ ] artists 
 
 ### resources
 
