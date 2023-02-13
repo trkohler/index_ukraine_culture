@@ -20,7 +20,15 @@
 - [x] deploy on netlify 
 - [x] added to search console 
 - [x] sitemaps!
-- [ ] artists 
+- [x] artists
+- [ ] all artists images should be downloaded and settled in our S3 bucket
+- [ ] gatsby image plugin should be used for images, they are slow to load
+- [ ] artists should have gallery with images, not just one example of their work
+  - links ref:
+    - https://github.com/lelouchB/next-image-gallery
+- [ ] need to make button 'back to listing' on profile
+- [ ] need to add genres to the listing
+- [ ] 
 
 ### resources
 

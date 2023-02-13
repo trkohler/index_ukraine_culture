@@ -9,7 +9,9 @@ import {
   Stack,
 } from "@chakra-ui/react"
 import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
+import { ArtGallery } from "../../components/ArtGallery"
 import { Link } from "../../components/Link"
 import { LinksBox } from "../../components/LinksBox"
 import { ProfileBox } from "../../components/ProfileBox"
@@ -31,8 +33,10 @@ type ProfileProps = {
   }
 }
 
+// glob expr: "*fedir-solncev*"
+
 export const query = graphql`
-  query createProfile($id: String!) {
+  query createProfile($id: String!, $glob: String!) {
     profile: creatorsCsv(id: { eq: $id }) {
       first_name_and_last_name
       communities_contributed
@@ -44,6 +48,16 @@ export const query = graphql`
       travels
       gender
       example_art
+    }
+
+    art: allFile(filter: { name: { glob: $glob } }) {
+      nodes {
+        id
+        base
+        childImageSharp {
+          gatsbyImageData(placeholder: DOMINANT_COLOR, formats: WEBP)
+        }
+      }
     }
   }
 `
@@ -71,7 +85,12 @@ const genderMeta = {
 }
 
 // Step 2: Define your component
-const Profile = ({ data: { profile } }: ProfileProps) => {
+const Profile = (props: ProfileProps) => {
+  
+  const {
+    data: { profile, art },
+  } = props
+  
   const titles = genderTitles[profile.gender]
   return (
     <Wrap bg="gray.50" minH={"100vh"}>
@@ -82,7 +101,12 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
           </Heading>
         </Box>
         <Box>
-          <Stack direction={['column', 'row']} mb={10} mx={[6, 24]} spacing={[10, 28]}>
+          <Stack
+            direction={["column", "row"]}
+            mb={10}
+            mx={[6, 24]}
+            spacing={[10, 28]}
+          >
             <VStack
               align={"stretch"}
               p={6}
@@ -133,16 +157,8 @@ const Profile = ({ data: { profile } }: ProfileProps) => {
                 ></ProfileBox>
               )}
             </VStack>
-            {profile.example_art && (
-              <Box>
-                <Image
-                  src={profile.example_art}
-                  alt={`${profile.first_name_and_last_name} картина`}
-                  boxSize={["md","lg"]}
-                  fit={"cover"}
-                  borderRadius={"lg"}
-                />
-              </Box>
+            {art.nodes.length && (
+              <ArtGallery art={art} author={profile.first_name_and_last_name} />
             )}
           </Stack>
 

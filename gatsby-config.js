@@ -22,6 +22,7 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+        fastHash: true,
       },
     },
     {
@@ -29,6 +30,7 @@ module.exports = {
       options: {
         name: `storage`,
         path: `${__dirname}/storage`,
+        fastHash: true,
       },
     },
     {
