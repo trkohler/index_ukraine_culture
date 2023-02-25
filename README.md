@@ -22,11 +22,16 @@
 - [x] sitemaps!
 - [x] artists
 - [ ] all artists images should be downloaded and settled in our S3 bucket
-- [ ] gatsby image plugin should be used for images, they are slow to load
-- [ ] artists should have gallery with images, not just one example of their work
+  - https://flaviocopes.com/node-aws-s3-upload-image/
+  - https://www.gatsbyjs.com/plugins/gatsby-source-s3/
+  - https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
+- [x] gatsby image plugin should be used for images, they are slow to load
+  - https://mediajams.dev/post/using-dynamic-image-in-gatsby-plugin-image
+- [x] artists should have gallery with images, not just one example of their work
   - links ref:
     - https://github.com/lelouchB/next-image-gallery
-- [ ] need to make button 'back to listing' on profile
+  - [ ] make image section bigger, limit text section
+- [x] need to make button 'back to listing' on profile
 - [ ] need to add genres to the listing
 - [ ] 
 
@@ -36,6 +41,7 @@
 - https://chakra-ui.com/docs/components
 - https://docs.google.com/spreadsheets/d/1L6uApGNTSfMfi7_bvaEV4kAM35sIVJA1PTN-LcTuVpk/edit#gid=0
 - https://open.spotify.com/playlist/7qiesZR3pwTVGGqV4lVxQu?si=db096343357e4541
+- sharp plugin article: https://www.digitalocean.com/community/tutorials/how-to-process-images-in-node-js-with-sharp
 
 ### weird ideas
 

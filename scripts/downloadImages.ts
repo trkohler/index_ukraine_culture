@@ -67,3 +67,4 @@ export function main(image_dir: string) {
     })
 }
 
+main('src/images')
