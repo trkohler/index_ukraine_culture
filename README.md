@@ -33,7 +33,13 @@
   - [ ] make image section bigger, limit text section
 - [x] need to make button 'back to listing' on profile
 - [ ] need to add genres to the listing
-- [ ] 
+- [ ] fix seo previews
+- [ ] translations!!!!
+- [ ] make 'looking help' page
+  - [ ] People with expertise in Ukrainian culture & art
+  - [ ] Project assistant
+  - [ ] Software Engineer (TypeScript) 
+  - [ ] Translator (to any other language except Russian)
 
 ### resources
 
