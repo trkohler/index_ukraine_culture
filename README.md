@@ -40,6 +40,8 @@
   - [ ] Project assistant
   - [ ] Software Engineer (TypeScript) 
   - [ ] Translator (to any other language except Russian)
+- [ ] render all issues (https://marko-py.readthedocs.io/en/latest/), publish them in github so open source community would see them 
+- [x] added lists (citations and most famous pieces)
 
 ### resources
 

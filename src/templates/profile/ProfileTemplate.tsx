@@ -3,16 +3,13 @@ import {
   Box,
   Container,
   Heading,
-  HStack,
   VStack,
   Wrap,
-  Image,
   Stack,
   Link,
   Button,
 } from "@chakra-ui/react"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { ArtGallery } from "../../components/ArtGallery"
 import { LinksBox } from "../../components/LinksBox"
@@ -32,6 +29,10 @@ type ProfileProps = {
       example_art?: string
       gender: "M" | "F"
       type: string
+      fields: {
+        citations_m: string[]
+        most_famous_pieces_m: string[]
+      }
     }
   }
 }
@@ -52,6 +53,10 @@ export const query = graphql`
       gender
       example_art
       type
+      fields {
+        citations_m
+        most_famous_pieces_m
+      }
     }
 
     art: allFile(filter: { name: { glob: $glob } }) {
@@ -140,7 +145,7 @@ const Profile = (props: ProfileProps) => {
                 {profile.citations && (
                   <ProfileBox
                     heading="Відомі цитати:"
-                    data={profile.citations}
+                    data={profile.fields.citations_m}
                   ></ProfileBox>
                 )}
                 {profile.communities_contributed && (
@@ -152,7 +157,7 @@ const Profile = (props: ProfileProps) => {
                 {profile.most_famous_pieces && (
                   <ProfileBox
                     heading="Найвідоміші твори:"
-                    data={profile.most_famous_pieces}
+                    data={profile.fields.most_famous_pieces_m || profile.most_famous_pieces}
                   ></ProfileBox>
                 )}
                 {profile.travels && (

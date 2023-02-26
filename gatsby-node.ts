@@ -24,12 +24,29 @@ exports.onCreateNode = ({
       value: slug(node["first-name-and-last-name"]),
     })
     if (node.citations) {
+      let citations = node.citations.split(";").map(citation => citation.trim())
       createNodeField({
         node,
         name: "citations_m",
-        value: node.citations.split("\n"),
+        value: citations,
       })
     }
+    let pieces = null
+    if (node["most-famous-pieces"]) {
+      pieces = node["most-famous-pieces"]
+      .split(";")
+      .map(piece => piece.trim())
+      .filter(piece => piece.length > 1)
+    }
+
+    createNodeField({
+      node,
+      name: "most_famous_pieces_m",
+      value: pieces,
+    })
+    
+    
+
     if (node.example_art) {
       createNodeField({
         node,
