@@ -58,6 +58,13 @@ module.exports = {
     `gatsby-plugin-sharp`,
     "gatsby-plugin-netlify",
     "gatsby-plugin-sitemap",
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./storage/volunteers`,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

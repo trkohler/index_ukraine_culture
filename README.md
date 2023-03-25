@@ -35,11 +35,27 @@
 - [ ] need to add genres to the listing
 - [ ] fix seo previews
 - [ ] translations!!!!
-- [ ] make 'looking help' page
-  - [ ] People with expertise in Ukrainian culture & art
-  - [ ] Project assistant
-  - [ ] Software Engineer (TypeScript) 
-  - [ ] Translator (to any other language except Russian)
+- [x] make 'looking help' page 
+  - [x] People with expertise in Ukrainian culture & art
+    - [x] Culture researchers 
+    - [x] Art researchers and crytics 
+  - [x] Software Engineer (TypeScript) 
+  - [x] Translator
+    - [x] Chinese [Mandarin]
+    - [x] German
+    - [x] English
+    - [x] Spanish
+    - [x] Afrikaans
+    - [x] Arabic
+    - [x] Japanese 
+    - [x] Hindi
+    - [x] Vietnamese 
+    - [x] French
+  - [x] made data for that (storage folder)
+  - [x] integrated data into graphql layer (https://www.gatsbyjs.com/plugins/gatsby-transformer-json/)
+  - [x] make listing for all (http://localhost:8000/volunteers/)
+  - [x] make slugs for data
+  - [x] make templated page for each 
 - [ ] render all issues (https://marko-py.readthedocs.io/en/latest/), publish them in github so open source community would see them 
 - [x] added lists (citations and most famous pieces)
 
