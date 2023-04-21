@@ -131,10 +131,15 @@ const Profile = (props: ProfileProps) => {
                 rounded="lg"
               >
                 {profile.birthplace && (
+                  <>
                   <ProfileBox
                     heading={titles.born}
                     data={profile.birthplace}
                   ></ProfileBox>
+                  <Link color={"blackAlpha.400"} fontSize={"xs"} href={"/map"}>
+                  Мапа місць народження всіх письменників
+                </Link>
+                </>
                 )}
                 {profile.education && (
                   <ProfileBox
@@ -157,7 +162,10 @@ const Profile = (props: ProfileProps) => {
                 {profile.most_famous_pieces && (
                   <ProfileBox
                     heading="Найвідоміші твори:"
-                    data={profile.fields.most_famous_pieces_m || profile.most_famous_pieces}
+                    data={
+                      profile.fields.most_famous_pieces_m ||
+                      profile.most_famous_pieces
+                    }
                   ></ProfileBox>
                 )}
                 {profile.travels && (
@@ -172,6 +180,7 @@ const Profile = (props: ProfileProps) => {
                     data={<Link to={profile.sources_of_data}>джерело</Link>}
                   ></ProfileBox>
                 )}
+                
               </VStack>
               {art.nodes.length && (
                 <ArtGallery

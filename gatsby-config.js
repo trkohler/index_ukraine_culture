@@ -4,6 +4,9 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
 const { typeNameFromDir } = require("gatsby-transformer-csv")
+require("dotenv").config({
+  path: `.env`,
+})
 
 /**
  * @type {import('gatsby').GatsbyConfig}
