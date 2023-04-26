@@ -12,8 +12,7 @@ export const ArtGallery = ({ art, author }) => {
       templateColumns={grid ? [{}, "repeat(2, 1fr)"] : {}}
       gap={4}
       bgColor="white"
-      boxShadow="md"
-      rounded="lg"
+      
       p={6}
       maxW="3xl"
     >

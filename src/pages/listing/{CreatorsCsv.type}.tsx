@@ -10,6 +10,7 @@ import {
 import { LinksBox } from "../../components/LinksBox"
 import { graphql } from "gatsby"
 import React from "react"
+import { Layout } from "../../components/Layout"
 
 export const query = graphql`
   query listing($type: String!) {
@@ -39,39 +40,19 @@ const Listing = props => {
   const creators = props.data.creators
   const type = props.params.type
   return (
-    <Wrap align={"left"} bg="gray.50">
-      <Container minW={"100%"}>
-        <Box m={[10, 28]}>
-          <Heading size={["lg", "2xl"]}>
-            {CREATORS_COPY_MAP[type].title}
-          </Heading>
-        </Box>
-
-        <Box>
-          {creators.edges.map(edge => (
-            <HStack
-              mb={[4, 10]}
-              mx={[10, 24]}
-              boxShadow="md"
-              bgColor={"white"}
-              rounded="lg"
-              justifyContent={"space-between"}
-              p={8}
-            >
-              <Stack>
-                <Heading size={["sm", "md"]} fontWeight={"medium"}>
-                  <Link href={`/profile/${edge.node.fields.slug}`}>
-                    {edge.node.first_name_and_last_name}
-                  </Link>
-                </Heading>
-              </Stack>
-            </HStack>
-          ))}
-        </Box>
-
-        <LinksBox />
-      </Container>
-    </Wrap>
+    <Layout heading={CREATORS_COPY_MAP[type].title}>
+      {creators.edges.map(edge => (
+        <HStack justifyContent={"space-between"} p={4}>
+          <Stack>
+            <Heading size={["sm", "md"]} fontWeight={"medium"}>
+              <Link href={`/profile/${edge.node.fields.slug}`}>
+                {edge.node.first_name_and_last_name}
+              </Link>
+            </Heading>
+          </Stack>
+        </HStack>
+      ))}
+    </Layout>
   )
 }
 

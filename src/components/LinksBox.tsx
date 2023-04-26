@@ -3,16 +3,15 @@ import React from "react"
 
 export const LinksBox = () => (
   <Box m={[10, 28]}>
-    <HStack justify={"space-between"}>
-      <Link color={"blackAlpha.400"} href={"/"}>
-        Головна
+    <HStack justify={'center'}>
+      <Text color={"blackAlpha.400"}>
+      <Link href={"/"}>
+        Iндекс української культури
       </Link>
-      <Link color={"blackAlpha.400"} href={"/volunteers"}>
-        Допомогти
-      </Link>
-      <Link color={"blackAlpha.400"} href={"/about"}>
-        Про проєкт
-      </Link>
+      &nbsp; © 2023
+      </Text>
+      
+      
     </HStack>
   </Box>
 )

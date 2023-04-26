@@ -14,6 +14,7 @@ import * as React from "react"
 import { ArtGallery } from "../../components/ArtGallery"
 import { LinksBox } from "../../components/LinksBox"
 import { ProfileBox } from "../../components/ProfileBox"
+import { Layout } from "../../components/Layout"
 
 type ProfileProps = {
   data: {
@@ -101,100 +102,72 @@ const Profile = (props: ProfileProps) => {
 
   const titles = genderTitles[profile.gender]
   return (
-    <Wrap bg="gray.50" minH={"100vh"}>
-      <Container minW={"100%"}>
-        <Box mx={[4, 10]} mt={[4, 10]}>
-          <Button
-            leftIcon={<ArrowBackIcon />}
-            color={"blackAlpha.400"}
-            variant="link"
-            fontSize={["2xs", "md"]}
-          >
-            <Link href={`/listing/${profile.type}`}>
-              Переглянути всіх митців
-            </Link>
-          </Button>
-        </Box>
-        <Box my={[6, 14]} mx={[10, 24]}>
-          <Box py={8}>
-            <Heading size={["lg", "2xl"]} as="h1">
-              Профіль: {profile.first_name_and_last_name}
-            </Heading>
-          </Box>
-          <Box>
-            <Stack direction={["column", "row"]} spacing={[10, 28]}>
-              <VStack
-                align={"stretch"}
-                p={6}
-                boxShadow="md"
-                bgColor={"white"}
-                rounded="lg"
-              >
-                {profile.birthplace && (
-                  <>
-                  <ProfileBox
-                    heading={titles.born}
-                    data={profile.birthplace}
-                  ></ProfileBox>
-                  <Link color={"blackAlpha.400"} fontSize={"xs"} href={"/map"}>
-                  Мапа місць народження всіх письменників
-                </Link>
-                </>
-                )}
-                {profile.education && (
-                  <ProfileBox
-                    heading={titles.studied}
-                    data={profile.education}
-                  ></ProfileBox>
-                )}
-                {profile.citations && (
-                  <ProfileBox
-                    heading="Відомі цитати:"
-                    data={profile.fields.citations_m}
-                  ></ProfileBox>
-                )}
-                {profile.communities_contributed && (
-                  <ProfileBox
-                    heading={titles.communities_contributed}
-                    data={profile.communities_contributed}
-                  ></ProfileBox>
-                )}
-                {profile.most_famous_pieces && (
-                  <ProfileBox
-                    heading="Найвідоміші твори:"
-                    data={
-                      profile.fields.most_famous_pieces_m ||
-                      profile.most_famous_pieces
-                    }
-                  ></ProfileBox>
-                )}
-                {profile.travels && (
-                  <ProfileBox
-                    heading={titles.traveled}
-                    data={profile.travels}
-                  ></ProfileBox>
-                )}
-                {profile.sources_of_data && (
-                  <ProfileBox
-                    heading="Джерела, які використовувалися для збору цієї інформації:"
-                    data={<Link to={profile.sources_of_data}>джерело</Link>}
-                  ></ProfileBox>
-                )}
-                
-              </VStack>
-              {art.nodes.length && (
-                <ArtGallery
-                  art={art}
-                  author={profile.first_name_and_last_name}
-                />
-              )}
-            </Stack>
-
-            <LinksBox />
-          </Box>
-        </Box>
-      </Container>
-    </Wrap>
+    <Layout
+      heading={`Профіль: ${profile.first_name_and_last_name}`}
+      
+    >
+      <Stack direction={["column", "row"]} spacing={[10, 28]}>
+        <VStack
+          align={"stretch"}
+          
+          
+        >
+          {profile.birthplace && (
+            <>
+              <ProfileBox
+                heading={titles.born}
+                data={profile.birthplace}
+              ></ProfileBox>
+              <Link color={"blackAlpha.400"} fontSize={"xs"} href={"/map"}>
+                Мапа місць народження всіх письменників
+              </Link>
+            </>
+          )}
+          {profile.education && (
+            <ProfileBox
+              heading={titles.studied}
+              data={profile.education}
+            ></ProfileBox>
+          )}
+          {profile.citations && (
+            <ProfileBox
+              heading="Відомі цитати:"
+              data={profile.fields.citations_m}
+            ></ProfileBox>
+          )}
+          {profile.communities_contributed && (
+            <ProfileBox
+              heading={titles.communities_contributed}
+              data={profile.communities_contributed}
+            ></ProfileBox>
+          )}
+          {profile.most_famous_pieces && (
+            <ProfileBox
+              heading="Найвідоміші твори:"
+              data={
+                profile.fields.most_famous_pieces_m ||
+                profile.most_famous_pieces
+              }
+            ></ProfileBox>
+          )}
+          {profile.travels && (
+            <ProfileBox
+              heading={titles.traveled}
+              data={profile.travels}
+            ></ProfileBox>
+          )}
+          {profile.sources_of_data && (
+            <ProfileBox
+              heading="Джерела, які використовувалися для збору цієї інформації:"
+              data={<Link to={profile.sources_of_data}>джерело</Link>}
+            ></ProfileBox>
+          )}
+        </VStack>
+        {art.nodes.length && (
+          <ArtGallery art={art} author={profile.first_name_and_last_name} />
+        )}
+      </Stack>
+    </Layout>
   )
 }
 

@@ -8,7 +8,7 @@ import { Layout } from "../components/Layout"
 
 const MainPage = () => {
   return (
-    <Layout heading={"Індекс української культури"}>
+    <Layout heading={"Індекс української культури"} >
       <Box>
         <Heading size={"md"} as={"h3"}>
           <Link href={"/listing/writers"}>Письменники</Link>

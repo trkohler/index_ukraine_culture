@@ -49,7 +49,7 @@ const Volunteer = ({
   },
 }: VolunteerProps) => {
   return (
-    <Layout heading={title} arrowSettings={{ text: "Всі волонтерські позиції", href: "/volunteers/" }}>
+    <Layout heading={title} >
       <Heading size={"md"}>Чому?</Heading>
       <UnorderedList>
         {why.map(({ main, bullets }) => (
