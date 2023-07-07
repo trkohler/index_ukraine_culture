@@ -21,6 +21,20 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-source-s3`,
+      options: {
+        aws: {
+          credentials: {
+            accessKeyId: process.env.ACCESS_KEY_ID,
+            secretAccessKey: process.env.SECRET_ACCESS_KEY,
+          },
+          region: process.env.REGION,
+        },
+        buckets: [process.env.BUCKET],
+        expiration: 360,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -37,7 +51,7 @@ module.exports = {
       },
     },
     {
-      resolve: '@chakra-ui/gatsby-plugin',
+      resolve: "@chakra-ui/gatsby-plugin",
       options: {
         /**
          * @property {boolean} [resetCSS=true]
@@ -72,9 +86,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          "G-J7C31DNXVV"
-        ],
+        trackingIds: ["G-J7C31DNXVV"],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {

@@ -1,18 +1,7 @@
-import { ArrowBackIcon } from "@chakra-ui/icons"
-import {
-  Box,
-  Container,
-  Heading,
-  VStack,
-  Wrap,
-  Stack,
-  Link,
-  Button,
-} from "@chakra-ui/react"
+import { VStack, Stack, Link } from "@chakra-ui/react"
 import { graphql } from "gatsby"
 import * as React from "react"
 import { ArtGallery } from "../../components/ArtGallery"
-import { LinksBox } from "../../components/LinksBox"
 import { ProfileBox } from "../../components/ProfileBox"
 import { Layout } from "../../components/Layout"
 
@@ -34,6 +23,10 @@ type ProfileProps = {
         citations_m: string[]
         most_famous_pieces_m: string[]
       }
+    }
+    art?: {
+      id: string
+      nodes: any[]
     }
   }
 }
@@ -60,12 +53,14 @@ export const query = graphql`
       }
     }
 
-    art: allFile(filter: { name: { glob: $glob } }) {
+    art: allS3Object(filter: { Key: { glob: $glob } }) {
       nodes {
-        id
-        base
-        childImageSharp {
-          gatsbyImageData(placeholder: DOMINANT_COLOR, formats: WEBP)
+        Key
+        localFile {
+          ext
+          childImageSharp {
+            gatsbyImageData(placeholder: DOMINANT_COLOR, formats: WEBP)
+          }
         }
       }
     }
@@ -100,45 +95,43 @@ const Profile = (props: ProfileProps) => {
     data: { profile, art },
   } = props
 
+  console.log(`art is`, art)
+
   const titles = genderTitles[profile.gender]
   return (
-    <Layout
-      heading={`Профіль: ${profile.first_name_and_last_name}`}
-      
-    >
+    <Layout heading={`Профіль: ${profile.first_name_and_last_name}`}>
       <Stack direction={["column", "row"]} spacing={[10, 28]}>
-        <VStack
-          align={"stretch"}
-          
-          
-        >
+        <VStack align={"stretch"}>
           {profile.birthplace && (
             <>
               <ProfileBox
                 heading={titles.born}
                 data={profile.birthplace}
               ></ProfileBox>
-              <Link color={"blackAlpha.400"} fontSize={"xs"} href={"/map"}>
+             {profile.type === 'writers' && <Link color={"blackAlpha.400"} fontSize={"xs"} href={"/map"}>
                 Мапа місць народження всіх письменників
-              </Link>
+              </Link>}
             </>
           )}
           {profile.education && (
             <ProfileBox
               heading={titles.studied}
               data={profile.education}
+              key={profile.education}
             ></ProfileBox>
           )}
           {profile.citations && (
             <ProfileBox
               heading="Відомі цитати:"
               data={profile.fields.citations_m}
+              key={profile.citations}
             ></ProfileBox>
           )}
           {profile.communities_contributed && (
             <ProfileBox
               heading={titles.communities_contributed}
               data={profile.communities_contributed}
+              key={profile.communities_contributed}
             ></ProfileBox>
           )}
           {profile.most_famous_pieces && (
@@ -148,23 +141,30 @@ const Profile = (props: ProfileProps) => {
                 profile.fields.most_famous_pieces_m ||
                 profile.most_famous_pieces
               }
+              key={profile.most_famous_pieces}
             ></ProfileBox>
           )}
           {profile.travels && (
             <ProfileBox
               heading={titles.traveled}
               data={profile.travels}
+              key={profile.travels}
             ></ProfileBox>
           )}
           {profile.sources_of_data && (
             <ProfileBox
               heading="Джерела, які використовувалися для збору цієї інформації:"
               data={<Link to={profile.sources_of_data}>джерело</Link>}
+              key={profile.sources_of_data}
             ></ProfileBox>
           )}
         </VStack>
-        {art.nodes.length && (
-          <ArtGallery art={art} author={profile.first_name_and_last_name} />
+        {art && art.nodes.length && (
+          <ArtGallery
+            art={art}
+            author={profile.first_name_and_last_name}
+            key={"art"}
+          />
         )}
       </Stack>
     </Layout>
