@@ -1,5 +1,6 @@
 ## tasks
 
+- [x] sitemaps for all pages
 - [x] make csv data accessible in graph ql (query is there: queries_example/writers-query.gql)
 - [x] make basic profile template
 - [x] make it clearer for humans
