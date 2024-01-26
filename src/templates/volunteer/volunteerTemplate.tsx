@@ -72,7 +72,7 @@ const Volunteer = ({
         <Link href="https://www.linkedin.com/in/trkohler/" color={"teal.600"}>
           сюди (це лінкедін профіль)
         </Link>{" "}
-        чи на пошту kohler.work.mail[at]gmail.com.
+        чи на пошту troyalekson\x\gmail.com
       </Text>
       <Text>
         В темі листа напишіть, що ви хочете стати волонтером для Індексу
